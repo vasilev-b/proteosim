@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "proteosim"
+version = "0.1.0"
+description = "The goal of this package is to enable an easy simulation of key steps in proteomic analysis. 
+
+This includes extraction of peptide sequences from FASTA files, peptide digestion, and LC-MS/MS.
+
+The repository is **under active development**."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Borislav Vailev borislav.vasilev@stud.uni-heidelberg.de" }]
+requires-python = ">=3.10"
+dependencies = [
+    "numpy",
+    "matplotlib",
+    "pandas",
+    "pyteomics",
+    "pytest",
+]
+
+[tool.setuptools.packages.find]
+include = ["proteosim*"]
