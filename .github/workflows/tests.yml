@@ -1,0 +1,36 @@
+name: tests
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          # Install project dependencies from pyproject.toml
+          pip install .
+          # OR if using Poetry:
+          # pip install poetry
+          # poetry install
+          
+          # Additional manual dependencies (if needed)
+          # pip install <your python dependencies>
+
+      - name: Run tests
+        run: |
+          pytest
