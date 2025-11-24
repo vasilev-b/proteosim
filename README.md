@@ -17,7 +17,17 @@ The package contains 4 modules which are based on the main steps in proteomic an
 This module contains the ```read_fasta``` function which takes a FASTA file with proteins and extracts their IDs as well as their sequences in a dictionary.
 
 ### B. ```protein_digestion.py```
-This script includes functions that simulate liquid chromatography.
+This module can be used to digest proteins. 
+
+
+```digest_protein_sequence``` takes a protein sequence string and digests it based on a specified cleavage pattern. The output is a list of peptides within a specific length window.
+
+```digest_protein_collection``` also digests protein sequences, however it uses a dictionary of ID/sequence pairs. It then generates another dictionary containig the selected peptides of each protein.
+
+```compute_sequence_coverage``` calculates the percentage of the reference sequence (str) covered by the generated peptides. The output is a float. 
+
+### C. ```liquid_chromatography.py```
+This part can be used to simulate liquid chromatography.
 
 ```predict_lc_retention_times``` predicts the retention times of peptides within a dictionary relatively to each other, with the output also being a dictionary. Therefore, values can also be negative.
 
@@ -25,13 +35,15 @@ This script includes functions that simulate liquid chromatography.
 
 ```select_retention_time_window``` selects the retention times from a dictionary within a given window. The output is also a dictionary.
 
-### C. ```liquid_chromatography.py```
-In this part ...
-
 ### D. ```mass_spectra_simulation.py```
-...
+The final module covers the simulation of mass spectra - both MS1 and MS2.
+
+```calculate_mol_mass``` calculates the molecular mass of a sequence (str) based on a dictionary containing amino acid/mass-pairs. The output is a dictionary. 
+```calculate_mol_mass_collection```also calculates the molecular mass of sequences, but the input is a dictionary conatining multiple peptides.
+```calculate_mz_collection``` calculates the m/z ratio.
+```...``` ...
 
 ## 3. Example notebook
 To see all the functions in action, you can check out the notebook ```ms_experiment_final.ipynb```. 
 
-Have fun using the package!
+### Have fun using the package!
